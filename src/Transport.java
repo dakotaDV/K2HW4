@@ -1,5 +1,5 @@
 
-public class Transport {
+public abstract class Transport {
 
 protected String brand;
     protected String model;
@@ -7,10 +7,11 @@ protected String brand;
     protected String productionCountry;
     protected String color;
     protected int maxSpeed;
+    protected String statusRefill;
 
 
-    public Transport( String brand, String model, int productionYear, String productionCountry, String color, int maxSpeed) {
-
+    public Transport( String brand, String model, int productionYear, String productionCountry, String color, int maxSpeed, String statusRefill) {
+        setStatusRefill(statusRefill);
         this.brand = brand;
         this.model = model;
         this.productionYear = productionYear;
@@ -52,12 +53,20 @@ protected String brand;
     }
 
     public void setMaxSpeed (int setMaxSpeed) {
-       if (maxSpeed == 0) {
+       if (maxSpeed <= 0) {
            this.maxSpeed = 220;
        }else{
             this.maxSpeed = maxSpeed;
         }
     }
+    public String getStatusRefill() {
+        return statusRefill;
+    }
+
+    public void setStatusRefill(String statusRefill) {
+        this.statusRefill = statusRefill;
+    }
+    protected abstract void refill(Boolean gasoline, Boolean diesel, Boolean electro);
 
 }
 

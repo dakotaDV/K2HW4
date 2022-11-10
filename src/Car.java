@@ -80,9 +80,8 @@ public class Car extends Transport {
     }
 
 
-    public Car(String brand, String model, double engineVolume, String color, int productionYear, String productionCountry, String transmission, String bodyType, String registrationNumber, int numberOfSeats, boolean summerTires, int maxSpeed) {
-      super(brand, model, productionYear, productionCountry, color, maxSpeed);
-
+    public Car(String brand, String model, double engineVolume, String color, int productionYear, String productionCountry, String transmission, String bodyType, String registrationNumber, int numberOfSeats, boolean summerTires, int maxSpeed, String statusRefill ) {
+      super(brand, model, productionYear, productionCountry, color, maxSpeed,statusRefill);
 
         if (Double.compare(engineVolume, 0) == 0) {
             this.engineVolume = 1.5;
@@ -141,6 +140,17 @@ public class Car extends Transport {
 
         System.out.println(brand + " " + model + ", " + productionYear + " год выпуска, " + "сборка  " + productionCountry + ", " + color + " цвета, " + "объем двигателя" + " коробка передач" + transmission + " тип кузова " + bodyType + " регистрационный номер " + registrationNumber + " количество мест " + numberOfSeats + " резина" + summerTires);
 
+    }
+
+
+
+    @Override
+    protected void refill(Boolean benzin, Boolean diesel, Boolean electro) {
+        if(benzin || diesel || electro) {
+            statusRefill = "заправлен";
+        }else{
+            statusRefill = "не заправлен";
+        }
     }
 
     public static class Key {

@@ -5,8 +5,8 @@ public class Train extends Transport {
     private   String finalStation;
     private   int numberOfWagons;
 
-    public Train(String brand, String model, int productionYear, String productionCountry, String color, int maxSpeed, double priceOfTrip, int travelTime, String departureStation, String finalStation, int numberOfWagons) {
-        super(brand, model, productionYear, productionCountry, color, maxSpeed);
+    public Train(String brand, String model, int productionYear, String productionCountry, String color, int maxSpeed, double priceOfTrip, int travelTime, String departureStation, String finalStation, int numberOfWagons, String statusRefill) {
+        super(brand, model, productionYear, productionCountry, color, maxSpeed, statusRefill );
         setPriceOfTrip(priceOfTrip);
         setTravelTime(travelTime);
         setDepartureStation(departureStation);
@@ -55,5 +55,17 @@ public class Train extends Transport {
                 if (numberOfWagons != 0) {
                     this.numberOfWagons = numberOfWagons;
                 }
+
             }
+
+
+
+    @Override
+    protected void refill(Boolean benzin , Boolean diesel, Boolean electro) {
+        if(diesel) {
+            statusRefill = " заправлен";
+        }else{
+            statusRefill = "не заправлен";
         }
+    }
+    }
