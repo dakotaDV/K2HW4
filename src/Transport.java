@@ -52,7 +52,7 @@ protected String brand;
         return maxSpeed;
     }
 
-    public void setMaxSpeed (int setMaxSpeed) {
+    public void setMaxSpeed (int maxSpeed) {
        if (maxSpeed <= 0) {
            this.maxSpeed = 220;
        }else{
